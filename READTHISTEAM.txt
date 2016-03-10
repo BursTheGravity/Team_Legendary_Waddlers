@@ -1,0 +1,9 @@
+I basically implemented our test function.
+If we want, we can change it to System.currentTimeMillis(), 
+but I found that for an array of 1 and 10 they were basically 0,
+so I decided to use System.nanoTime().
+
+Also, add our algorithms/data/analysis and stuff in the big
+comment box on the top and the small one on the bottom pls!
+
+Can delete this file whenever you guys finish. Ty team !!
