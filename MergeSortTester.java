@@ -3,8 +3,9 @@
 /*======================================
   class MergeSortTester
   ALGORITHM:
-  Divide an array of length n into n sub-arrays of length 1. Repeatedly merge these
-  sub-arrays to create larger, sorted sub-arrays until one array remains.
+  Divide an array of length n into n sub-arrays of length 1. 
+  Repeatedly merge these sub-arrays to create larger, 
+  sorted sub-arrays until one array remains.
 
   BIG-OH CLASSIFICATION OF ALGORITHM:
   nlog(n)
@@ -15,9 +16,9 @@
   n=10      time: 795 nanoseconds
   n=100     time: 8.78 microseconds
   n=1000    time: 99.8 microseconds 
-
   ...
   n=10000  time: 1.15 milliseconds
+  
   ANALYSIS:
   This does appear to be linearithmic, 
   each time the length is multiplied by a factor of 10,
@@ -66,7 +67,9 @@ public class MergeSortTester {
 
         //After running all 100, find average time of all the runs
         //averageTime = averageTime / 10000;
-        System.out.println("Average runtime for array of size " + len + ": " + time + " nanoseconds");
+	System.out.println("Running " + (int)amt + " tests of length " + len + "...");
+        System.out.println("Average runtime " + len + ": " + time + " nanoseconds\n");
+	
     }
 
     /******************************
@@ -75,7 +78,8 @@ public class MergeSortTester {
      * The average time is found by dividing the total time taken by 100
      ******************************/
     public static void main(String[] args) {
-	System.out.println("Testing arrays 10000 times each...");
+	//Testing arrays of size 0
+	test(0, 1000000);
         //Testing arrays of size 1
         test(10000, 500);
         //Testing arrays of size 10
