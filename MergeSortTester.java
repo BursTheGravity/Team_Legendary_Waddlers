@@ -19,9 +19,17 @@
   ...
   n=10000  time: 1.15 milliseconds
   ANALYSIS:
-  As the array grows larger, more time
- is required to sort it.
-======================================*/
+  This does appear to be linearithmic, 
+  each time the length is multiplied by a factor of 10,
+  the time is multiplied by a number greater than ten.
+  The n=1 result may seem weird but this is becaus log(1) = 0. 
+  So the only time really comes from calling the method, 
+  which instantly returns.
+  The ratio of times between n and 10n should be 10log(10n) / log(n).
+  Since the ratio log(10n)/log(n) tends towards 1 
+  then the times for 10n should tend towards being 10 times that of n.
+  Which we see well represented in these results.
+ ======================================*/
 
 public class MergeSortTester {
 
