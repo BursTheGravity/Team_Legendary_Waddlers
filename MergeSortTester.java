@@ -11,12 +11,13 @@
 
   Mean execution times for dataset of size n:
   Batch size: 10000
-  n=1       time: 145 nanoseconds
-  n=10      time: 1182 nanoseconds
-  n=100     time: 8547 nanoseconds
+  n=1       time: 2.45 nanoseconds
+  n=10      time: 795 nanoseconds
+  n=100     time: 8.78 microseconds
+  n=1000    time: 99.8 microseconds 
 
   ...
-  n=10000  time: 953329 nanoseconds
+  n=10000  time: 1.15 milliseconds
   ANALYSIS:
   As the array grows larger, more time
  is required to sort it.
@@ -35,9 +36,9 @@ public class MergeSortTester {
     	}
 	
 	//Method to sort arrays and time them
-    	public static void test(int len) {
+    public static void test(int len, double amt) {
         //Create a new array test with input length & populate it
-        int[][] test = new int[10000][len];
+        int[][] test = new int[(int)amt][len];
         //We created a 2d array instead to just go through all 100 rows of the 1d array of specified length
         populate(test);
 
@@ -53,7 +54,7 @@ public class MergeSortTester {
         long timeEnd = System.nanoTime();
 
         //Tracking the average time for all 10000 runs
-        long time = (timeEnd - timeStart)/10000;
+        double time = (timeEnd - timeStart)/amt;
 
         //After running all 100, find average time of all the runs
         //averageTime = averageTime / 10000;
@@ -68,15 +69,15 @@ public class MergeSortTester {
     public static void main(String[] args) {
 	System.out.println("Testing arrays 10000 times each...");
         //Testing arrays of size 1
-        test(10000);
+        test(10000, 500);
         //Testing arrays of size 10
-        test(1000);
+        test(1000, 10000);
         //Testing arrays of size 100
-        test(100);
+        test(100, 100000);
 	//Testing arrays of size 1000
-	test(10);
+	test(10, 1000000);
         //Testing arrays of size 10000
-        test(1);
+        test(1,  10000000);
 	System.out.println();
     }//end main
 
